@@ -8,334 +8,95 @@
 
 <style>
 :root{
-  --black:#090909;
-  --panel:#141414;
-  --panel2:#1c1a15;
-  --gold:#d6b45c;
-  --gold-light:#f3d98e;
-  --gold-dark:#8e7135;
-  --text:#f5f1e8;
-  --muted:#a39b8b;
-  --line:#42392b;
-  --green:#247a50;
-  --red:#a83d3d;
+  --black:#090909;--panel:#141414;--panel2:#1c1a15;
+  --gold:#d6b45c;--gold-light:#f3d98e;--gold-dark:#8e7135;
+  --text:#f5f1e8;--muted:#a39b8b;--line:#42392b;
+  --green:#247a50;--red:#a83d3d;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  padding:0 0 calc(92px + env(safe-area-inset-bottom));
+  margin:0;padding:0 0 calc(92px + env(safe-area-inset-bottom));
   font-family:Arial,sans-serif;
-  background:
-    radial-gradient(circle at 50% 0%,#2a2114 0%,transparent 60%),
-    var(--black);
-  color:var(--text);
-  direction:rtl;
-  min-height:100vh;
+  background:radial-gradient(circle at 50% 0%,#2a2114 0%,transparent 60%),var(--black);
+  color:var(--text);direction:rtl;min-height:100vh;
 }
 button,input,textarea,select{font-family:inherit}
-button{
-  cursor:pointer;
-  transition:transform .16s ease,filter .16s ease,background .16s ease,border-color .16s ease;
-}
+button{cursor:pointer;transition:transform .16s ease,filter .16s ease,background .16s ease,border-color .16s ease}
 button:active{transform:scale(.98)}
-button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
-  outline:2px solid var(--gold-light);
-  outline-offset:2px;
-}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--gold-light);outline-offset:2px}
 .app{max-width:620px;margin:auto;padding:16px 16px 28px}
-
-/* כותרת ומיתוג יוקרתי */
 .top-brand{text-align:center;padding:14px 8px 20px}
 .brand-icon{
-  width:82px;height:82px;margin:0 auto 14px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:40px;
-  background:radial-gradient(circle at 30% 30%,#4a3a1f,#111 75%);
-  box-shadow:0 0 35px rgba(214,180,92,0.25), inset 0 0 15px rgba(214,180,92,0.15);
+  width:82px;height:82px;margin:0 auto 14px;border:1px solid var(--gold);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:40px;background:radial-gradient(circle at 30% 30%,#4a3a1f,#111 75%);
+  box-shadow:0 0 35px rgba(214,180,92,.25),inset 0 0 15px rgba(214,180,92,.15);
 }
-.brand-name{
-  direction:ltr;
-  font-size:26px;
-  letter-spacing:4px;
-  font-weight:800;
-  color:var(--gold-light);
-  margin:0;
-  text-shadow:0 2px 10px rgba(0,0,0,0.8);
-}
-.brand-sub{
-  direction:ltr;
-  font-size:11px;
-  letter-spacing:3.5px;
-  color:var(--gold);
-  margin-top:6px;
-  font-weight:bold;
-}
-.brand-hebrew{font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:0.5px}
-.gold-line{
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:20px 0;
-  opacity:0.6;
-}
-
-/* מסכים */
+.brand-name{direction:ltr;font-size:26px;letter-spacing:4px;font-weight:800;color:var(--gold-light);margin:0;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.brand-sub{direction:ltr;font-size:11px;letter-spacing:3.5px;color:var(--gold);margin-top:6px;font-weight:bold}
+.brand-hebrew{font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:.5px}
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px 0;opacity:.6}
 .screen{display:none;animation:appear .25s ease}
 .screen.active{display:block}
-@keyframes appear{
-  from{opacity:0;transform:translateY(6px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* מסך הבית - כרטיסייה ראשית מעוצבת */
+@keyframes appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .welcome-card{
-  background:
-    radial-gradient(circle at 90% 10%,rgba(214,180,92,0.15),transparent 60%),
-    linear-gradient(145deg,#241f16,#121212);
-  border:1px solid #7c6437;
-  border-radius:20px;
-  padding:30px 22px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-  margin-bottom:24px;
-  position:relative;
-  overflow:hidden;
+  background:radial-gradient(circle at 90% 10%,rgba(214,180,92,.15),transparent 60%),linear-gradient(145deg,#241f16,#121212);
+  border:1px solid #7c6437;border-radius:20px;padding:30px 22px;text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05);
+  margin-bottom:24px;position:relative;overflow:hidden;
 }
-.welcome-card:after{
-  content:"";
-  position:absolute;
-  width:160px;
-  height:160px;
-  border:1px solid rgba(214,180,92,0.1);
-  border-radius:50%;
-  left:-60px;
-  bottom:-90px;
-  box-shadow:0 0 0 18px rgba(214,180,92,0.03);
-}
-.welcome-icon{
-  width:58px;
-  height:58px;
-  margin:0 auto 14px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold-light);
-  font-size:26px;
-  background:radial-gradient(circle,#423319,#141414);
-  box-shadow:0 0 15px rgba(214,180,92,0.2);
-}
-.welcome-card h2{
-  color:var(--gold-light);
-  font-size:24px;
-  margin:0 0 10px;
-  font-weight:700;
-}
-.welcome-card p{
-  color:#cec5b2;
-  font-size:14px;
-  line-height:1.8;
-  margin:0;
-}
-.home-menu-title{
-  text-align:center;
-  color:var(--gold);
-  font-size:13px;
-  margin:24px 0 14px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.menu-card{
-  min-height:140px;
-  border:1px solid #5a492e;
-  border-radius:18px;
-  background:linear-gradient(145deg,#221d15,#131313);
-  color:var(--text);
-  padding:22px 12px;
-  text-align:center;
-  width:100%;
-  box-shadow:0 6px 18px rgba(0,0,0,0.5);
-}
-.menu-card:active, .menu-card:hover{
-  background:linear-gradient(145deg,#332918,#191712);
-  border-color:var(--gold-light);
-  box-shadow:0 8px 22px rgba(214,180,92,0.15);
-}
-.menu-icon{
-  font-size:32px;
-  margin-bottom:12px;
-  color:var(--gold-light);
-  filter:drop-shadow(0 2px 8px rgba(214,180,92,0.35));
-}
-.menu-title{
-  font-size:15px;
-  font-weight:bold;
-  color:var(--gold-light);
-}
-.menu-desc{
-  font-size:11px;
-  line-height:1.5;
-  color:var(--muted);
-  margin-top:6px;
-}
-
-/* נתונים וכרטיסים */
-.section-title{
-  font-size:18px;
-  color:var(--gold-light);
-  margin:24px 2px 14px;
-  font-weight:700;
-  letter-spacing:0.5px;
-}
+.welcome-card:after{content:"";position:absolute;width:160px;height:160px;border:1px solid rgba(214,180,92,.1);border-radius:50%;left:-60px;bottom:-90px;box-shadow:0 0 0 18px rgba(214,180,92,.03)}
+.welcome-icon{width:58px;height:58px;margin:0 auto 14px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:26px;background:radial-gradient(circle,#423319,#141414);box-shadow:0 0 15px rgba(214,180,92,.2)}
+.welcome-card h2{color:var(--gold-light);font-size:24px;margin:0 0 10px;font-weight:700}
+.welcome-card p{color:#cec5b2;font-size:14px;line-height:1.8;margin:0}
+.home-menu-title{text-align:center;color:var(--gold);font-size:13px;margin:24px 0 14px;letter-spacing:2px;text-transform:uppercase}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.menu-card{min-height:140px;border:1px solid #5a492e;border-radius:18px;background:linear-gradient(145deg,#221d15,#131313);color:var(--text);padding:22px 12px;text-align:center;width:100%;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.menu-card:active,.menu-card:hover{background:linear-gradient(145deg,#332918,#191712);border-color:var(--gold-light);box-shadow:0 8px 22px rgba(214,180,92,.15)}
+.menu-icon{font-size:32px;margin-bottom:12px;color:var(--gold-light);filter:drop-shadow(0 2px 8px rgba(214,180,92,.35))}
+.menu-title{font-size:15px;font-weight:bold;color:var(--gold-light)}
+.menu-desc{font-size:11px;line-height:1.5;color:var(--muted);margin-top:6px}
+.section-title{font-size:18px;color:var(--gold-light);margin:24px 2px 14px;font-weight:700;letter-spacing:.5px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.stat-card{
-  background:linear-gradient(145deg,#1f1c16,#121212);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:15px 8px;
-  text-align:center;
-  min-width:0;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-}
+.stat-card{background:linear-gradient(145deg,#1f1c16,#121212);border:1px solid var(--line);border-radius:14px;padding:15px 8px;text-align:center;min-width:0;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .stat-icon{font-size:20px;margin-bottom:7px}
 .stat-number{font-size:19px;font-weight:bold;color:var(--gold-light);overflow-wrap:anywhere}
 .stat-label{font-size:11px;color:var(--muted);margin-top:5px}
-
-.panel{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  margin:14px 0;
-  box-shadow:0 6px 20px rgba(0,0,0,0.4);
-}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 6px 20px rgba(0,0,0,.4)}
 .panel h3,.panel h4{color:var(--gold-light);margin:0 0 14px;font-size:16px}
 label{display:block;color:#ded4be;font-size:13px;margin:14px 0 6px;font-weight:500}
-input,textarea,select{
-  width:100%;
-  background:#0d0d0d;
-  color:var(--text);
-  border:1px solid #5a4f3e;
-  border-radius:11px;
-  padding:13px 15px;
-  font-size:16px;
-  margin:0 0 10px;
-  box-shadow:inset 0 2px 4px rgba(0,0,0,0.5);
-  transition:border-color 0.2s;
-}
-input:focus,textarea:focus,select:focus{
-  border-color:var(--gold);
-}
+input,textarea,select{width:100%;background:#0d0d0d;color:var(--text);border:1px solid #5a4f3e;border-radius:11px;padding:13px 15px;font-size:16px;margin:0 0 10px;box-shadow:inset 0 2px 4px rgba(0,0,0,.5);transition:border-color .2s}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
 input[type=file]{font-size:13px;padding:10px}
 textarea{height:140px;resize:vertical;line-height:1.5}
 input::placeholder,textarea::placeholder{color:#666}
-button.action{
-  display:block;width:100%;
-  border:1px solid var(--gold-dark);
-  border-radius:12px;
-  padding:14px 16px;
-  font-size:15px;font-weight:bold;
-  margin-top:12px;
-  background:linear-gradient(135deg,#e1c26b,#9b7934);
-  color:#120f08;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
-}
-button.action:hover{
-  background:linear-gradient(135deg,#ebd07e,#aa8439);
-}
-button.action.secondary{
-  background:linear-gradient(145deg,#252119,#171612);
-  color:var(--gold-light);
-  border-color:#68542f;
-}
-button.action.secondary:hover{
-  background:linear-gradient(145deg,#322a1f,#1e1c17);
-}
+button.action{display:block;width:100%;border:1px solid var(--gold-dark);border-radius:12px;padding:14px 16px;font-size:15px;font-weight:bold;margin-top:12px;background:linear-gradient(135deg,#e1c26b,#9b7934);color:#120f08;box-shadow:0 5px 15px rgba(0,0,0,.4)}
+button.action:hover{background:linear-gradient(135deg,#ebd07e,#aa8439)}
+button.action.secondary{background:linear-gradient(145deg,#252119,#171612);color:var(--gold-light);border-color:#68542f}
+button.action.secondary:hover{background:linear-gradient(145deg,#322a1f,#1e1c17)}
 button.action.green{background:linear-gradient(135deg,#28965f,#185c3b);color:#fff;border-color:#38a870}
 button.action.blue{background:linear-gradient(135deg,#2d5f96,#1c3e63);color:#fff;border-color:#4a87cb}
 button.action.red{background:linear-gradient(135deg,#963838,#632424);color:#fff;border-color:#b84c4c}
 button.action.gray{background:linear-gradient(145deg,#333,#222);color:#ddd;border-color:#555}
 button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
-
-.status{
-  background:#17261d;color:#a9ddb4;
-  padding:12px;border-radius:10px;
-  font-size:13px;margin:10px 0;
-  border:1px solid #2d4f37;
-}
+.status{background:#17261d;color:#a9ddb4;padding:12px;border-radius:10px;font-size:13px;margin:10px 0;border:1px solid #2d4f37;white-space:pre-wrap}
 .small{color:var(--muted);font-size:12px;white-space:pre-wrap}
 .error{color:#ff8585;margin-top:10px;font-size:13px}
-.output{
-  background:#0d0d0d;padding:16px;
-  border-radius:12px;margin-top:14px;
-  white-space:pre-wrap;overflow-wrap:anywhere;
-  font-family:monospace;font-size:14px;
-  border:1px solid #6b552e;line-height:1.7;
-  box-shadow:inset 0 2px 6px rgba(0,0,0,0.6);
-}
-.summary-box{
-  background:#141414;padding:15px;
-  border-radius:12px;margin-top:12px;
-  border:1px solid var(--line);
-}
-.ride-item,.driver-card{
-  background:linear-gradient(145deg,#221f1a,#141414);
-  border:1px solid #5a4d3a;
-  border-radius:14px;
-  padding:15px;margin:12px 0;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-}
+.output{background:#0d0d0d;padding:16px;border-radius:12px;margin-top:14px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:monospace;font-size:14px;border:1px solid #6b552e;line-height:1.7;box-shadow:inset 0 2px 6px rgba(0,0,0,.6)}
+.summary-box{background:#141414;padding:15px;border-radius:12px;margin-top:12px;border:1px solid var(--line)}
+.ride-item,.driver-card{background:linear-gradient(145deg,#221f1a,#141414);border:1px solid #5a4d3a;border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .ride-item{line-height:1.8;font-size:13px}
-.driver-card button{
-  background:transparent;border:0;color:var(--text);
-  width:100%;padding:0;margin:0;text-align:right;
-}
+.driver-card button{background:transparent;border:0;color:var(--text);width:100%;padding:0;margin:0;text-align:right}
 .back-btn{background:#333!important;color:#eee!important;border-color:#666!important}
-.empty-state{
-  text-align:center;padding:30px 15px;color:var(--muted);
-  background:#141414;border:1px dashed #5a4d3a;border-radius:16px;
-}
-
-/* ניווט תחתון יוקרתי מרחף */
-.bottom-nav{
-  position:fixed;z-index:100;
-  bottom:0;left:0;right:0;
-  padding:10px 8px calc(10px + env(safe-area-inset-bottom));
-  display:grid;grid-template-columns:repeat(5,1fr);
-  background:rgba(15,15,15,0.92);
-  border-top:1px solid #5a492e;
-  backdrop-filter:blur(16px);
-  box-shadow:0 -10px 25px rgba(0,0,0,0.7);
-}
-.nav-btn{
-  border:0;background:transparent;color:#938b7c;
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:4px;
-  padding:6px 2px;font-size:10px;
-  font-weight:600;
-}
+.empty-state{text-align:center;padding:30px 15px;color:var(--muted);background:#141414;border:1px dashed #5a4d3a;border-radius:16px}
+.bottom-nav{position:fixed;z-index:100;bottom:0;left:0;right:0;padding:10px 8px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);background:rgba(15,15,15,.92);border-top:1px solid #5a492e;backdrop-filter:blur(16px);box-shadow:0 -10px 25px rgba(0,0,0,.7)}
+.nav-btn{border:0;background:transparent;color:#938b7c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:6px 2px;font-size:10px;font-weight:600}
 .nav-btn .nav-icon{font-size:22px;line-height:1.2}
 .nav-btn.active{color:var(--gold-light)}
-.nav-btn.active .nav-icon{filter:drop-shadow(0 0 8px rgba(214,180,92,0.6))}
+.nav-btn.active .nav-icon{filter:drop-shadow(0 0 8px rgba(214,180,92,.6))}
 .hidden{display:none!important}
-
-@media(min-width:600px){
-  .app{padding-top:28px}
-  .bottom-nav{
-    left:50%;right:auto;
-    transform:translateX(-50%);
-    width:min(620px,100%);
-    border-radius:18px 18px 0 0;
-  }
-}
+@media(min-width:600px){.app{padding-top:28px}.bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(620px,100%);border-radius:18px 18px 0 0}}
 </style>
 </head>
 
@@ -350,53 +111,31 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
   <div class="gold-line"></div>
 </header>
 
-<!-- מסך הבית -->
 <section class="screen active" id="homeScreen">
-
   <div class="welcome-card">
     <div class="welcome-icon">✦</div>
     <h2>ברוכים הבאים</h2>
-    <p>
-      מערכת ניהול הנסיעות שלך<br>
-      כל ההזמנות, הנהגים והדוחות במקום אחד
-    </p>
+    <p>מערכת ניהול הנסיעות שלך<br>כל ההזמנות, הנהגים והדוחות במקום אחד</p>
   </div>
-
   <div class="home-menu-title">ניהול המערכת</div>
-
   <div class="menu-grid">
-
     <button class="menu-card" onclick="newOrder();showTab('order')">
-      <div class="menu-icon">✚</div>
-      <div class="menu-title">הזמנה חדשה</div>
-      <div class="menu-desc">יצירת הזמנה לנהג</div>
+      <div class="menu-icon">✚</div><div class="menu-title">הזמנה חדשה</div><div class="menu-desc">יצירת הזמנה לנהג</div>
     </button>
-
     <button class="menu-card" onclick="showTab('rides')">
-      <div class="menu-icon">🚘</div>
-      <div class="menu-title">הנסיעות שלי</div>
-      <div class="menu-desc">צפייה וחיפוש נסיעות</div>
+      <div class="menu-icon">🚘</div><div class="menu-title">הנסיעות שלי</div><div class="menu-desc">צפייה וחיפוש נסיעות</div>
     </button>
-
     <button class="menu-card" onclick="showTab('drivers')">
-      <div class="menu-icon">♙</div>
-      <div class="menu-title">נהגים</div>
-      <div class="menu-desc">ניהול וצפייה בנסיעות הנהגים</div>
+      <div class="menu-icon">♙</div><div class="menu-title">נהגים</div><div class="menu-desc">ניהול וצפייה בנסיעות הנהגים</div>
     </button>
-
     <button class="menu-card" onclick="showTab('reports')">
-      <div class="menu-icon">▤</div>
-      <div class="menu-title">דוחות</div>
-      <div class="menu-desc">הכנסות, נסיעות וחלוקה</div>
+      <div class="menu-icon">▤</div><div class="menu-title">דוחות</div><div class="menu-desc">הכנסות, נסיעות וחלוקה</div>
     </button>
-
   </div>
 </section>
 
-<!-- מסך הזמנה חדשה -->
 <section class="screen" id="orderScreen">
   <div class="section-title">➕ יצירת הזמנה חדשה</div>
-
   <div class="panel">
     <h3>📇 אנשי קשר</h3>
     <input type="file" id="vcfFile" accept=".vcf,text/vcard">
@@ -405,15 +144,11 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
     <div id="contactStatus" class="status">עדיין לא נטענו אנשי קשר</div>
     <label>חיפוש לקוח</label>
     <input id="contactSearch" type="text" placeholder="הקלד שם לקוח לחיפוש..." oninput="searchContacts()">
-    <select id="contactResults" onchange="selectContact()" style="display:none">
-      <option value="">בחר איש קשר</option>
-    </select>
+    <select id="contactResults" onchange="selectContact()" style="display:none"><option value="">בחר איש קשר</option></select>
     <div id="selectedContactInfo" class="small"></div>
     <div id="phoneChoiceArea" style="display:none">
       <label for="contactPhoneChoice">בחר מספר טלפון:</label>
-      <select id="contactPhoneChoice" onchange="selectContactPhone()">
-        <option value="">בחר מספר טלפון</option>
-      </select>
+      <select id="contactPhoneChoice" onchange="selectContactPhone()"><option value="">בחר מספר טלפון</option></select>
     </div>
   </div>
 
@@ -426,10 +161,8 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
     <input type="text" id="driverName" placeholder="הכנס שם נהג (למשל: דניאל, אבי...)">
     <button class="action" onclick="generateOrder()">צור הזמנה מעוצבת ושמור נתונים</button>
     <div id="errorMessage" class="error"></div>
-
     <div id="outputSection" style="display:none">
-      <div class="gold-line"></div>
-      <h3>התוצאה מוכנה</h3>
+      <div class="gold-line"></div><h3>התוצאה מוכנה</h3>
       <div id="outputResult" class="output"></div>
       <button class="action green" onclick="sendToWhatsApp()">שלח לוואטסאפ (בחר נמען)</button>
       <button class="action blue" onclick="sendToGoogleTasks()">📋 שתף ל-Google Tasks</button>
@@ -437,19 +170,15 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
   </div>
 </section>
 
-<!-- מסך נסיעות -->
 <section class="screen" id="ridesScreen">
   <div class="section-title">🚘 כל הנסיעות</div>
   <div class="panel">
     <input id="rideSearch" type="search" placeholder="חיפוש לפי לקוח, נהג או כתובת..." oninput="renderRidesTab()">
-    <select id="rideDriverFilter" onchange="renderRidesTab()">
-      <option value="">כל הנהגים</option>
-    </select>
+    <select id="rideDriverFilter" onchange="renderRidesTab()"><option value="">כל הנהגים</option></select>
     <div id="ridesList"></div>
   </div>
 </section>
 
-<!-- מסך נהגים -->
 <section class="screen" id="driversScreen">
   <div class="section-title">👥 ניהול נהגים</div>
   <div class="panel">
@@ -458,12 +187,21 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
   </div>
 </section>
 
-<!-- מסך דוחות -->
 <section class="screen" id="reportsScreen">
   <div class="section-title">📊 דוחות וסיכומים</div>
   <div class="panel">
     <button class="action" onclick="showMonthlyReport()">הצג סיכום נסיעות</button>
     <button class="action red" onclick="resetMonthlyData()">איפוס נתוני הנסיעות</button>
+
+    <div class="gold-line"></div>
+    <h3>💾 גיבוי והעברת נתונים</h3>
+    <p class="small">ייצוא או ייבוא של כל הנסיעות ואנשי הקשר בין האפליקציה הישנה לאתר החדש.</p>
+    <button class="action blue" onclick="exportAllData()">📥 ייצוא כל הנתונים לקובץ גיבוי</button>
+    <label for="dataBackupFile">בחר קובץ גיבוי לייבוא:</label>
+    <input type="file" id="dataBackupFile" accept=".json,application/json">
+    <button class="action green" onclick="importAllData()">📤 ייבוא נתונים לקובץ הנוכחי</button>
+    <div id="backupStatus" class="status">הגיבוי כולל נסיעות ואנשי קשר</div>
+
     <div id="monthlyReportArea" style="display:none">
       <div class="gold-line"></div>
       <div class="summary-box" id="reportContent"></div>
@@ -474,23 +212,12 @@ button.action.small-action{padding:10px;font-size:13px;margin-top:8px}
 
 </div>
 
-<!-- סרגל ניווט תחתון -->
 <nav class="bottom-nav">
-  <button class="nav-btn active" data-tab="home" onclick="showTab('home')">
-    <span class="nav-icon">⌂</span><span>בית</span>
-  </button>
-  <button class="nav-btn" data-tab="order" onclick="showTab('order')">
-    <span class="nav-icon">＋</span><span>הזמנה</span>
-  </button>
-  <button class="nav-btn" data-tab="rides" onclick="showTab('rides')">
-    <span class="nav-icon">🚘</span><span>נסיעות</span>
-  </button>
-  <button class="nav-btn" data-tab="drivers" onclick="showTab('drivers')">
-    <span class="nav-icon">♙</span><span>נהגים</span>
-  </button>
-  <button class="nav-btn" data-tab="reports" onclick="showTab('reports')">
-    <span class="nav-icon">▤</span><span>דוחות</span>
-  </button>
+  <button class="nav-btn active" data-tab="home" onclick="showTab('home')"><span class="nav-icon">⌂</span><span>בית</span></button>
+  <button class="nav-btn" data-tab="order" onclick="showTab('order')"><span class="nav-icon">＋</span><span>הזמנה</span></button>
+  <button class="nav-btn" data-tab="rides" onclick="showTab('rides')"><span class="nav-icon">🚘</span><span>נסיעות</span></button>
+  <button class="nav-btn" data-tab="drivers" onclick="showTab('drivers')"><span class="nav-icon">♙</span><span>נהגים</span></button>
+  <button class="nav-btn" data-tab="reports" onclick="showTab('reports')"><span class="nav-icon">▤</span><span>דוחות</span></button>
 </nav>
 
 <script>
@@ -504,477 +231,217 @@ let ridesDriverFilterValue='';
 const STORAGE_KEY='daniel_taxi_contacts_v1';
 const RIDES_STORAGE_KEY='daniel_taxi_monthly_rides_v1';
 
-/* ניווט בין המסכים */
 function showTab(tab){
-  const screens={
-    home:'homeScreen',
-    order:'orderScreen',
-    rides:'ridesScreen',
-    drivers:'driversScreen',
-    reports:'reportsScreen'
-  };
-
-  Object.values(screens).forEach(id=>{
-    document.getElementById(id).classList.remove('active');
-  });
-
+  const screens={home:'homeScreen',order:'orderScreen',rides:'ridesScreen',drivers:'driversScreen',reports:'reportsScreen'};
+  Object.values(screens).forEach(id=>document.getElementById(id).classList.remove('active'));
   document.getElementById(screens[tab]||screens.home).classList.add('active');
-
-  document.querySelectorAll('.nav-btn').forEach(btn=>{
-    btn.classList.toggle('active',btn.dataset.tab===tab);
-  });
-
+  document.querySelectorAll('.nav-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===tab));
   if(tab==='home')refreshDashboard();
   if(tab==='rides')renderRidesTab();
   if(tab==='drivers')renderDriversTab();
-
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* נתונים למסך הבית */
 function getSavedRides(){
-  try{
-    const saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];
-    return Array.isArray(saved)?saved:[];
-  }catch(e){return [];}
+  try{const saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];return Array.isArray(saved)?saved:[];}
+  catch(e){return [];}
 }
 
 function refreshDashboard(){
   const rides=getSavedRides();
   const revenue=rides.reduce((sum,r)=>sum+(Number(r.price)||0),0);
   const drivers=new Set(rides.map(r=>r.driver||'לא ידוע'));
-
   const rideCount=document.getElementById('homeRideCount');
   const revenueElement=document.getElementById('homeRevenue');
   const driverCount=document.getElementById('homeDriverCount');
-
   if(rideCount)rideCount.innerText=rides.length;
   if(revenueElement)revenueElement.innerText=revenue.toLocaleString('he-IL');
   if(driverCount)driverCount.innerText=drivers.size;
 }
 
-/* אנשי קשר */
 function loadSavedContacts(){
   try{
     const saved=localStorage.getItem(STORAGE_KEY);
-    if(saved){
-      const parsed=JSON.parse(saved);
-      contacts=Array.isArray(parsed)?parsed.filter(c=>c&&c.name&&Array.isArray(c.phones)):[];
-    }
+    if(saved){const parsed=JSON.parse(saved);contacts=Array.isArray(parsed)?parsed.filter(c=>c&&c.name&&Array.isArray(c.phones)):[];}
   }catch(e){contacts=[];}
-
   updateContactStatus();
 }
 
 function updateContactStatus(){
-  document.getElementById('contactStatus').innerText=contacts.length
-    ?`✅ נטענו ${contacts.length} אנשי קשר ונשמרו במכשיר`
-    :'עדיין לא נטענו אנשי קשר';
+  document.getElementById('contactStatus').innerText=contacts.length?`✅ נטענו ${contacts.length} אנשי קשר ונשמרו במכשיר`:'עדיין לא נטענו אנשי קשר';
 }
 
 function normalizeName(value){
-  return String(value||'').toLowerCase()
-    .replace(/[^\p{L}\p{N}]/gu,' ')
-    .replace(/\s+/g,' ')
-    .trim();
+  return String(value||'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,' ').replace(/\s+/g,' ').trim();
 }
 
 function normalizePhone(phone){
-  let raw=String(phone||'').trim();
-  if(!raw)return '';
-
-  let digits=raw.replace(/\D/g,'');
-  if(!digits)return '';
-
+  let raw=String(phone||'').trim();if(!raw)return '';
+  let digits=raw.replace(/\D/g,'');if(!digits)return '';
   if(raw.startsWith('+'))return digits;
   if(digits.startsWith('00'))return digits.substring(2);
   if(digits.startsWith('972'))return digits;
-
-  if(/^0(?:2|3|4|5|7|8|9)/.test(digits)&&(digits.length===9||digits.length===10)){
-    return '972'+digits.substring(1);
-  }
-
+  if(/^0(?:2|3|4|5|7|8|9)/.test(digits)&&(digits.length===9||digits.length===10))return '972'+digits.substring(1);
   return digits;
 }
 
 function toWhatsAppDigits(phone){
-  let raw=String(phone||'').trim();
-  let digits=raw.replace(/\D/g,'');
-
+  let raw=String(phone||'').trim();let digits=raw.replace(/\D/g,'');
   if(digits.startsWith('00'))return digits.substring(2);
   if(digits.startsWith('972'))return digits;
-
-  if(/^0(?:2|3|4|5|7|8|9)/.test(digits)&&(digits.length===9||digits.length===10)){
-    return '972'+digits.substring(1);
-  }
-
+  if(/^0(?:2|3|4|5|7|8|9)/.test(digits)&&(digits.length===9||digits.length===10))return '972'+digits.substring(1);
   return digits;
 }
 
 function decodeQuotedPrintable(value){
   const bytes=[];
-
   for(let i=0;i<value.length;i++){
-    if(value[i]==='='&&/^[0-9A-Fa-f]{2}$/.test(value.substring(i+1,i+3))){
-      bytes.push(parseInt(value.substring(i+1,i+3),16));
-      i+=2;
-    }else{
-      const encoded=new TextEncoder().encode(value[i]);
-      for(const b of encoded)bytes.push(b);
-    }
+    if(value[i]==='='&&/^[0-9A-Fa-f]{2}$/.test(value.substring(i+1,i+3))){bytes.push(parseInt(value.substring(i+1,i+3),16));i+=2;}
+    else{const encoded=new TextEncoder().encode(value[i]);for(const b of encoded)bytes.push(b);}
   }
-
   return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
 }
 
 function decodeVCardValue(property,value){
-  if(/ENCODING=QUOTED-PRINTABLE/i.test(property)){
-    return decodeQuotedPrintable(value);
-  }
-
+  if(/ENCODING=QUOTED-PRINTABLE/i.test(property))return decodeQuotedPrintable(value);
   if(/ENCODING=(?:B|BASE64)/i.test(property)){
-    try{
-      const binary=atob(value.replace(/\s/g,''));
-      const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
-      return new TextDecoder('utf-8').decode(bytes);
-    }catch(e){
-      throw new Error('שדה מקודד בקובץ אינו תקין');
-    }
+    try{const binary=atob(value.replace(/\s/g,''));const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));return new TextDecoder('utf-8').decode(bytes);}
+    catch(e){throw new Error('שדה מקודד בקובץ אינו תקין');}
   }
-
-  return value.replace(/\\n/gi,'\n')
-    .replace(/\\,/g,',')
-    .replace(/\\;/g,';')
-    .replace(/\\\\/g,'\\');
+  return value.replace(/\\n/gi,'\n').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\');
 }
 
 function unfoldVCardLines(raw){
   let normalized=raw.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
   normalized=normalized.replace(/=\n/g,'');
-
   return normalized.split('\n').reduce((lines,line)=>{
-    if(/^[ \t]/.test(line)&&lines.length){
-      lines[lines.length-1]+=line.substring(1);
-    }else{
-      lines.push(line);
-    }
+    if(/^[ \t]/.test(line)&&lines.length)lines[lines.length-1]+=line.substring(1);
+    else lines.push(line);
     return lines;
   },[]);
 }
 
 function parseVCF(raw){
   if(typeof raw!=='string'||!raw.trim())throw new Error('הקובץ ריק');
-
-  const lines=unfoldVCardLines(raw);
-  const cards=[];
-  let current=null;
-
+  const lines=unfoldVCardLines(raw);const cards=[];let current=null;
   for(const line of lines){
     const trimmed=line.trim();
-
-    if(/^BEGIN:VCARD$/i.test(trimmed)){
-      if(current)throw new Error('מבנה VCF פגום: כרטיס איש קשר התחיל לפני סיום הקודם');
-      current=[];
-    }else if(/^END:VCARD$/i.test(trimmed)){
-      if(!current)throw new Error('מבנה VCF פגום: נמצא END ללא BEGIN');
-      cards.push(current);
-      current=null;
-    }else if(current){
-      current.push(line);
-    }
+    if(/^BEGIN:VCARD$/i.test(trimmed)){if(current)throw new Error('מבנה VCF פגום: כרטיס איש קשר התחיל לפני סיום הקודם');current=[];}
+    else if(/^END:VCARD$/i.test(trimmed)){if(!current)throw new Error('מבנה VCF פגום: נמצא END ללא BEGIN');cards.push(current);current=null;}
+    else if(current)current.push(line);
   }
-
   if(current)throw new Error('מבנה VCF פגום: חסר END:VCARD');
   if(!cards.length)throw new Error('לא נמצאו כרטיסי אנשי קשר תקינים בקובץ');
-
   const result=[];
-
   for(const card of cards){
-    let name='',familyName='',givenName='';
-    const phones=[];
-
+    let name='',familyName='',givenName='';const phones=[];
     for(const line of card){
-      const colon=line.indexOf(':');
-      if(colon<1)continue;
-
-      const property=line.substring(0,colon);
-      const value=line.substring(colon+1);
-
-      if(/^FN(?:;|$)/i.test(property)){
-        name=decodeVCardValue(property,value).trim();
-      }else if(/^N(?:;|$)/i.test(property)){
-        const decoded=decodeVCardValue(property,value).split(';');
-        familyName=decoded[0]||'';
-        givenName=decoded[1]||'';
-      }else if(/^TEL(?:;|$)/i.test(property)){
+      const colon=line.indexOf(':');if(colon<1)continue;
+      const property=line.substring(0,colon);const value=line.substring(colon+1);
+      if(/^FN(?:;|$)/i.test(property))name=decodeVCardValue(property,value).trim();
+      else if(/^N(?:;|$)/i.test(property)){const decoded=decodeVCardValue(property,value).split(';');familyName=decoded[0]||'';givenName=decoded[1]||'';}
+      else if(/^TEL(?:;|$)/i.test(property)){
         let phone=decodeVCardValue(property,value).trim();
-
-        if(/^tel:/i.test(phone)){
-          phone=phone.replace(/^tel:/i,'');
-        }
-
+        if(/^tel:/i.test(phone))phone=phone.replace(/^tel:/i,'');
         phone=phone.replace(/[^\d+]/g,'');
-
-        if(phone&&!phones.some(p=>normalizePhone(p)===normalizePhone(phone))){
-          phones.push(phone);
-        }
+        if(phone&&!phones.some(p=>normalizePhone(p)===normalizePhone(phone)))phones.push(phone);
       }
     }
-
     if(!name)name=[givenName,familyName].filter(Boolean).join(' ').trim();
-
     if(name&&phones.length)result.push({name,phones});
   }
-
   if(!result.length)throw new Error('לא נמצאו אנשי קשר עם שם ומספר טלפון בקובץ');
-
   return result;
 }
 
 function escapeVCard(value){
-  return String(value||'')
-    .replace(/\\/g,'\\\\')
-    .replace(/\n/g,'\\n')
-    .replace(/,/g,'\\,')
-    .replace(/;/g,'\\;');
+  return String(value||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
 }
 
 function createContactsVCF(list){
   const lines=[];
-
   (Array.isArray(list)?list:[]).forEach(contact=>{
     if(!contact||!contact.name)return;
-
-    lines.push(
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      'FN;CHARSET=UTF-8:'+escapeVCard(contact.name)
-    );
-
-    (Array.isArray(contact.phones)?contact.phones:[]).forEach(phone=>{
-      if(phone)lines.push('TEL;TYPE=CELL:'+String(phone).replace(/[\r\n]/g,''));
-    });
-
+    lines.push('BEGIN:VCARD','VERSION:3.0','FN;CHARSET=UTF-8:'+escapeVCard(contact.name));
+    (Array.isArray(contact.phones)?contact.phones:[]).forEach(phone=>{if(phone)lines.push('TEL;TYPE=CELL:'+String(phone).replace(/[\r\n]/g,''));});
     lines.push('END:VCARD');
   });
-
   if(!lines.length)throw new Error('אין אנשי קשר לגיבוי');
-
   return lines.join('\r\n')+'\r\n';
 }
 
 function downloadContactsBackup(){
   const vcf=createContactsVCF(contacts);
   const blob=new Blob([vcf],{type:'text/vcard;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement('a');
-  const date=new Date();
-
-  const dateText=[
-    date.getFullYear(),
-    String(date.getMonth()+1).padStart(2,'0'),
-    String(date.getDate()).padStart(2,'0')
-  ].join('-');
-
-  link.href=url;
-  link.download='Daniel_Exclusive_Luxury_Taxi_Contacts_'+dateText+'.vcf';
-
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-
-  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  const url=URL.createObjectURL(blob);const link=document.createElement('a');const date=new Date();
+  const dateText=[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-');
+  link.href=url;link.download='Daniel_Exclusive_Luxury_Taxi_Contacts_'+dateText+'.vcf';
+  document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
 }
 
 function mergeContactLists(existingList,incomingList){
-  const merged=(Array.isArray(existingList)?existingList:[])
-    .map(contact=>({
-      name:String(contact.name||'').trim(),
-      phones:Array.isArray(contact.phones)?contact.phones.map(String):[]
-    }))
-    .filter(contact=>contact.name);
-
-  const report={
-    addedContacts:0,
-    addedPhones:0,
-    recognized:0,
-    duplicatePhones:0,
-    ambiguous:[],
-    nameChanges:[],
-    changedExisting:0
-  };
-
+  const merged=(Array.isArray(existingList)?existingList:[]).map(contact=>({name:String(contact.name||'').trim(),phones:Array.isArray(contact.phones)?contact.phones.map(String):[]})).filter(contact=>contact.name);
+  const report={addedContacts:0,addedPhones:0,recognized:0,duplicatePhones:0,ambiguous:[],nameChanges:[],changedExisting:0};
   for(const item of incomingList){
     const name=String(item.name||'').trim();
-
-    const incomingPhones=[...new Set(
-      (Array.isArray(item.phones)?item.phones:[])
-        .map(p=>String(p||'').trim())
-        .filter(Boolean)
-    )];
-
+    const incomingPhones=[...new Set((Array.isArray(item.phones)?item.phones:[]).map(p=>String(p||'').trim()).filter(Boolean))];
     if(!name||!incomingPhones.length)continue;
-
-    const owners=new Set();
-    const alreadyInExisting=new Set();
-
+    const owners=new Set();const alreadyInExisting=new Set();
     incomingPhones.forEach(phone=>{
-      const key=normalizePhone(phone);
-      if(!key)return;
-
-      merged.forEach((contact,index)=>{
-        if(contact.phones.some(existing=>normalizePhone(existing)===key)){
-          owners.add(index);
-          alreadyInExisting.add(key);
-        }
-      });
+      const key=normalizePhone(phone);if(!key)return;
+      merged.forEach((contact,index)=>{if(contact.phones.some(existing=>normalizePhone(existing)===key)){owners.add(index);alreadyInExisting.add(key);}});
     });
-
     if(owners.size>1){
-      report.ambiguous.push({
-        name,
-        phones:incomingPhones,
-        owners:[...owners].map(i=>merged[i].name)
-      });
-
-      report.duplicatePhones+=alreadyInExisting.size;
-      continue;
+      report.ambiguous.push({name,phones:incomingPhones,owners:[...owners].map(i=>merged[i].name)});
+      report.duplicatePhones+=alreadyInExisting.size;continue;
     }
-
     if(owners.size===1){
-      const owner=merged[[...owners][0]];
-      report.recognized++;
-
-      if(normalizeName(owner.name)!==normalizeName(name)){
-        report.nameChanges.push({oldName:owner.name,newName:name});
-      }
-
+      const owner=merged[[...owners][0]];report.recognized++;
+      if(normalizeName(owner.name)!==normalizeName(name))report.nameChanges.push({oldName:owner.name,newName:name});
       let changed=false;
-
       for(const phone of incomingPhones){
-        const key=normalizePhone(phone);
-        if(!key)continue;
-
+        const key=normalizePhone(phone);if(!key)continue;
         const exists=merged.some(c=>c.phones.some(p=>normalizePhone(p)===key));
-
-        if(exists){
-          report.duplicatePhones++;
-          continue;
-        }
-
-        owner.phones.push(phone);
-        report.addedPhones++;
-        changed=true;
+        if(exists){report.duplicatePhones++;continue;}
+        owner.phones.push(phone);report.addedPhones++;changed=true;
       }
-
-      if(changed)report.changedExisting++;
-      continue;
+      if(changed)report.changedExisting++;continue;
     }
-
     const freshPhones=[];
-
     for(const phone of incomingPhones){
       const key=normalizePhone(phone);
-
-      const exists=merged.some(c=>c.phones.some(p=>normalizePhone(p)===key))||
-        freshPhones.some(p=>normalizePhone(p)===key);
-
-      if(exists){
-        report.duplicatePhones++;
-        continue;
-      }
-
+      const exists=merged.some(c=>c.phones.some(p=>normalizePhone(p)===key))||freshPhones.some(p=>normalizePhone(p)===key);
+      if(exists){report.duplicatePhones++;continue;}
       freshPhones.push(phone);
     }
-
-    if(freshPhones.length){
-      merged.push({name,phones:freshPhones});
-      report.addedContacts++;
-      report.addedPhones+=freshPhones.length;
-    }
+    if(freshPhones.length){merged.push({name,phones:freshPhones});report.addedContacts++;report.addedPhones+=freshPhones.length;}
   }
-
   return {merged,report};
 }
 
 function saveContactsSafely(list){
-  try{
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(list));
-    return true;
-  }catch(error){
-    return false;
-  }
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(list));return true;}
+  catch(error){return false;}
 }
 
 function buildImportSummary(report){
-  let summary=
-`אנשי קשר חדשים: ${report.addedContacts}
-מספרי טלפון חדשים שנוספו: ${report.addedPhones}
-אנשי קשר קיימים שזוהו לפי מספר: ${report.recognized}
-מספרים כפולים שדולגו: ${report.duplicatePhones}`;
-
-  if(report.ambiguous.length){
-    summary+='\n\nמספרים משותפים שנמצאו אצל יותר מאיש קשר אחד:';
-
-    report.ambiguous.forEach(item=>{
-      summary+=`\n• ${item.name}: ${item.phones.join(' / ')}\n  רשומות קיימות: ${item.owners.join(' | ')}`;
-    });
-  }
-
-  if(report.nameChanges.length){
-    summary+='\n\nשמות שונים שנמצאו למספר שכבר קיים (השם הקיים יישמר):';
-
-    report.nameChanges.forEach(item=>{
-      summary+=`\n• ${item.oldName} ← בקובץ: ${item.newName}`;
-    });
-  }
-
+  let summary=`אנשי קשר חדשים: ${report.addedContacts}\nמספרי טלפון חדשים שנוספו: ${report.addedPhones}\nאנשי קשר קיימים שזוהו לפי מספר: ${report.recognized}\nמספרים כפולים שדולגו: ${report.duplicatePhones}`;
+  if(report.ambiguous.length){summary+='\n\nמספרים משותפים שנמצאו אצל יותר מאיש קשר אחד:';report.ambiguous.forEach(item=>{summary+=`\n• ${item.name}: ${item.phones.join(' / ')}\n  רשומות קיימות: ${item.owners.join(' | ')}`;});}
+  if(report.nameChanges.length){summary+='\n\nשמות שונים שנמצאו למספר שכבר קיים (השם הקיים יישמר):';report.nameChanges.forEach(item=>{summary+=`\n• ${item.oldName} ← בקובץ: ${item.newName}`;});}
   return summary;
 }
 
 async function importContacts(){
   const file=document.getElementById('vcfFile').files[0];
-
-  if(!file){
-    alert('בחר תחילה קובץ VCF');
-    return;
-  }
-
+  if(!file){alert('בחר תחילה קובץ VCF');return;}
   try{
-    const imported=parseVCF(await file.text());
-    const result=mergeContactLists(contacts,imported);
-    const summary=buildImportSummary(result.report);
-
-    if(contacts.length){
-      try{
-        downloadContactsBackup();
-      }catch(backupError){
-        alert('לא ניתן ליצור גיבוי אנשי הקשר. הייבוא בוטל ולא בוצעו שינויים.\n'+backupError.message);
-        return;
-      }
-    }
-
-    if(!confirm('נוצר קובץ גיבוי של אנשי הקשר הקיימים.\n\nבדוק את סיכום הייבוא:\n\n'+summary+'\n\nהאם לאשר את המיזוג והשמירה?')){
-      return;
-    }
-
-    if(!saveContactsSafely(result.merged)){
-      alert('השמירה נכשלה. רשימת אנשי הקשר הקיימת נשארה ללא שינוי.');
-      return;
-    }
-
-    contacts=result.merged;
-    selectedContact=null;
-    selectedPhone='';
-
-    clearContactSelectionUI();
-    updateContactStatus();
-
+    const imported=parseVCF(await file.text());const result=mergeContactLists(contacts,imported);const summary=buildImportSummary(result.report);
+    if(contacts.length){try{downloadContactsBackup();}catch(backupError){alert('לא ניתן ליצור גיבוי אנשי הקשר. הייבוא בוטל ולא בוצעו שינויים.\n'+backupError.message);return;}}
+    if(!confirm('נוצר קובץ גיבוי של אנשי הקשר הקיימים.\n\nבדוק את סיכום הייבוא:\n\n'+summary+'\n\nהאם לאשר את המיזוג והשמירה?'))return;
+    if(!saveContactsSafely(result.merged)){alert('השמירה נכשלה. רשימת אנשי הקשר הקיימת נשארה ללא שינוי.');return;}
+    contacts=result.merged;selectedContact=null;selectedPhone='';clearContactSelectionUI();updateContactStatus();
     alert('הייבוא הסתיים בהצלחה.\n\n'+summary);
-
-  }catch(err){
-    alert('הייבוא בוטל. הקובץ לא שונה ורשימת אנשי הקשר הקיימת נשארה ללא שינוי.\n'+err.message);
-  }
+  }catch(err){alert('הייבוא בוטל. הקובץ לא שונה ורשימת אנשי הקשר הקיימת נשארה ללא שינוי.\n'+err.message);}
 }
 
 function clearContactSelectionUI(){
@@ -984,437 +451,150 @@ function clearContactSelectionUI(){
 }
 
 async function syncPhoneContacts(){
-  if(!navigator.contacts||typeof navigator.contacts.select!=='function'){
-    alert('הדפדפן אינו תומך בסנכרון ישיר. השתמש בייבוא קובץ VCF.');
-    return;
-  }
-
+  if(!navigator.contacts||typeof navigator.contacts.select!=='function'){alert('הדפדפן אינו תומך בסנכרון ישיר. השתמש בייבוא קובץ VCF.');return;}
   try{
-    const selected=await navigator.contacts.select(['name','tel'],{multiple:true});
-
-    if(!selected||!selected.length)return;
-
+    const selected=await navigator.contacts.select(['name','tel'],{multiple:true});if(!selected||!selected.length)return;
     const imported=[];
-
     for(const item of selected){
       const name=String(item.name?.[0]||'').trim();
-      const phones=(item.tel||[])
-        .map(v=>String(v).replace(/[^\d+]/g,''))
-        .filter(Boolean);
-
+      const phones=(item.tel||[]).map(v=>String(v).replace(/[^\d+]/g,'')).filter(Boolean);
       if(name&&phones.length)imported.push({name,phones});
     }
-
-    if(!imported.length){
-      alert('לא נבחרו אנשי קשר עם מספרי טלפון.');
-      return;
-    }
-
+    if(!imported.length){alert('לא נבחרו אנשי קשר עם מספרי טלפון.');return;}
     const result=mergeContactLists(contacts,imported);
-
-    if(contacts.length){
-      try{
-        downloadContactsBackup();
-      }catch(backupError){
-        alert('לא ניתן ליצור גיבוי אנשי הקשר. הסנכרון בוטל ולא בוצעו שינויים.\n'+backupError.message);
-        return;
-      }
-    }
-
-    if(!confirm('נוצר קובץ גיבוי של אנשי הקשר הקיימים.\n\nבדוק את סיכום הסנכרון:\n\n'+buildImportSummary(result.report)+'\n\nהאם לאשר את המיזוג והשמירה?')){
-      return;
-    }
-
-    if(!saveContactsSafely(result.merged)){
-      alert('השמירה נכשלה. רשימת אנשי הקשר הקיימת נשארה ללא שינוי.');
-      return;
-    }
-
-    contacts=result.merged;
-    updateContactStatus();
-
-    alert('הסנכרון הסתיים בהצלחה.\n\n'+buildImportSummary(result.report));
-
-  }catch(err){
-    console.error(err);
-  }
+    if(contacts.length){try{downloadContactsBackup();}catch(backupError){alert('לא ניתן ליצור גיבוי אנשי הקשר. הסנכרון בוטל ולא בוצעו שינויים.\n'+backupError.message);return;}}
+    if(!confirm('נוצר קובץ גיבוי של אנשי הקשר הקיימים.\n\nבדוק את סיכום הסנכרון:\n\n'+buildImportSummary(result.report)+'\n\nהאם לאשר את המיזוג והשמירה?'))return;
+    if(!saveContactsSafely(result.merged)){alert('השמירה נכשלה. רשימת אנשי הקשר הקיימת נשארה ללא שינוי.');return;}
+    contacts=result.merged;updateContactStatus();alert('הסנכרון הסתיים בהצלחה.\n\n'+buildImportSummary(result.report));
+  }catch(err){console.error(err);}
 }
 
 function searchContacts(){
-  const query=normalizeName(document.getElementById('contactSearch').value);
-  const select=document.getElementById('contactResults');
-
+  const query=normalizeName(document.getElementById('contactSearch').value);const select=document.getElementById('contactResults');
   select.innerHTML='<option value="">בחר איש קשר</option>';
-
-  if(query.length<2){
-    select.style.display='none';
-    return;
-  }
-
-  const matches=contacts
-    .map((contact,index)=>({contact,index}))
-    .filter(item=>normalizeName(item.contact.name).includes(query))
-    .slice(0,50);
-
-  matches.forEach(item=>{
-    const option=document.createElement('option');
-    option.value=item.index;
-    option.textContent=item.contact.name+' – '+item.contact.phones.join(' / ');
-    select.appendChild(option);
-  });
-
+  if(query.length<2){select.style.display='none';return;}
+  const matches=contacts.map((contact,index)=>({contact,index})).filter(item=>normalizeName(item.contact.name).includes(query)).slice(0,50);
+  matches.forEach(item=>{const option=document.createElement('option');option.value=item.index;option.textContent=item.contact.name+' – '+item.contact.phones.join(' / ');select.appendChild(option);});
   select.style.display=matches.length?'block':'none';
 }
 
 function selectContact(){
-  const value=document.getElementById('contactResults').value;
-  selectedPhone='';
-
-  const phoneSelect=document.getElementById('contactPhoneChoice');
-  phoneSelect.innerHTML='<option value="">בחר מספר טלפון</option>';
-
-  if(value===''){
-    selectedContact=null;
-    clearContactSelectionUI();
-    return;
-  }
-
+  const value=document.getElementById('contactResults').value;selectedPhone='';
+  const phoneSelect=document.getElementById('contactPhoneChoice');phoneSelect.innerHTML='<option value="">בחר מספר טלפון</option>';
+  if(value===''){selectedContact=null;clearContactSelectionUI();return;}
   selectedContact=contacts[Number(value)];
-
   document.getElementById('selectedContactInfo').innerText='✅ נבחר: '+selectedContact.name;
-
-  selectedContact.phones.forEach((phone,index)=>{
-    const option=document.createElement('option');
-    option.value=String(index);
-    option.textContent=phone;
-    phoneSelect.appendChild(option);
-  });
-
+  selectedContact.phones.forEach((phone,index)=>{const option=document.createElement('option');option.value=String(index);option.textContent=phone;phoneSelect.appendChild(option);});
   document.getElementById('phoneChoiceArea').style.display='block';
 }
 
 function selectContactPhone(){
   const value=document.getElementById('contactPhoneChoice').value;
-
-  selectedPhone=(value!==''&&selectedContact&&selectedContact.phones[Number(value)])
-    ?selectedContact.phones[Number(value)]:'';
-
+  selectedPhone=(value!==''&&selectedContact&&selectedContact.phones[Number(value)])?selectedContact.phones[Number(value)]:'';
   const info=document.getElementById('selectedContactInfo');
-
-  if(selectedContact){
-    info.innerText='✅ נבחר: '+selectedContact.name+
-      (selectedPhone?'\n📞 מספר שנבחר: '+selectedPhone:'\nיש לבחור מספר טלפון');
-  }
+  if(selectedContact)info.innerText='✅ נבחר: '+selectedContact.name+(selectedPhone?'\n📞 מספר שנבחר: '+selectedPhone:'\nיש לבחור מספר טלפון');
 }
 
 /* יצירת הזמנה */
 function generateOrder(){
   try{
     document.getElementById('errorMessage').innerText='';
-
     let text=document.getElementById('rawInput').value||'';
-
-    if(!text.trim()){
-      alert('נא להדביק פרטי הזמנה תחילה.');
-      return;
-    }
-
+    if(!text.trim()){alert('נא להדביק פרטי הזמנה תחילה.');return;}
     let lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.length>0);
     let headerTitle=lines.length>0?lines[0]:'איסוף משדה התעופה';
-
     let phoneClean='';
-
-    if(selectedContact&&selectedPhone){
-      const digitsOnly=toWhatsAppDigits(selectedPhone);
-      if(digitsOnly)phoneClean='wa.me/'+digitsOnly;
-    }
-
+    if(selectedContact&&selectedPhone){const digitsOnly=toWhatsAppDigits(selectedPhone);if(digitsOnly)phoneClean='wa.me/'+digitsOnly;}
     let flightMatch=text.match(/\b([A-Z]{2}\s*\d{1,4})\b/i);
     let flightNum=flightMatch?flightMatch[1].replace(/\s+/g,'').toUpperCase():'';
     let flightRadarLink=flightNum?`flightradar24.com/${flightNum}`:'flightradar24.com';
-
-    let dateMatch=text.match(/\d{1,2}\/\d{1,2}/);
-    let dateVal=dateMatch?dateMatch[0]:'';
-
-    let timeMatch=text.match(/\b\d{1,2}:\d{2}\b/);
-    let timeVal=timeMatch?timeMatch[0]:'';
-
-    let dayVal='שבת';
-    let days=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
-
-    for(let d of days){
-      if(text.includes(d)){
-        dayVal=d;
-        break;
-      }
-    }
-
-    let priceMatch=text.match(/(\d[\d,]*)\s*(?:₪|ש"ח|שח)/)||
-      text.match(/מחיר[:\s]*(\d[\d,]*)/);
-
-    let priceVal=priceMatch?priceMatch[1].replace(/,/g,''):'0';
-    let priceNum=parseFloat(priceVal)||0;
-
-    let customerAndAddress=lines.length>1?lines[1]:'';
-    let customerParts=customerAndAddress.split(/\s+/);
-    let customerName=customerParts[0]||'לקוח';
-
-    let wazeAddress=customerAndAddress.trim().replace(/\s+/g,' ');
-    let wazeQuery=encodeURIComponent(wazeAddress).replace(/%20/g,'+');
-    let wazeLink='waze.com/ul?q='+wazeQuery;
-
+    let dateMatch=text.match(/\d{1,2}\/\d{1,2}/);let dateVal=dateMatch?dateMatch[0]:'';
+    let timeMatch=text.match(/\b\d{1,2}:\d{2}\b/);let timeVal=timeMatch?timeMatch[0]:'';
+    let dayVal='שבת';let days=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+    for(let d of days){if(text.includes(d)){dayVal=d;break;}}
+    let priceMatch=text.match(/(\d[\d,]*)\s*(?:₪|ש"ח|שח)/)||text.match(/מחיר[:\s]*(\d[\d,]*)/);
+    let priceVal=priceMatch?priceMatch[1].replace(/,/g,''):'0';let priceNum=parseFloat(priceVal)||0;
+    let customerAndAddress=lines.length>1?lines[1]:'';let customerParts=customerAndAddress.split(/\s+/);let customerName=customerParts[0]||'לקוח';
+    let wazeAddress=customerAndAddress.trim().replace(/\s+/g,' ');let wazeQuery=encodeURIComponent(wazeAddress).replace(/%20/g,'+');let wazeLink='waze.com/ul?q='+wazeQuery;
     let driverName=document.getElementById('driverName').value.trim();
-
-    if(!driverName){
-      let driverMatch=text.match(/נהג[:\s]*([א-תA-Za-z\s]+)/);
-      driverName=driverMatch?driverMatch[1].trim():'לא צוין';
-    }
-
+    if(!driverName){let driverMatch=text.match(/נהג[:\s]*([א-תA-Za-z\s]+)/);driverName=driverMatch?driverMatch[1].trim():'לא צוין';}
     let notesArr=[];
-
     for(let i=0;i<lines.length;i++){
-      let line=lines[i];
-
-      if(i===0||i===1)continue;
-
-      let isDayOfWeek=days.some(d=>line.includes(d));
-      let isDate=/\d{1,2}\/\d{1,2}/.test(line);
-      let isTime=/\d{1,2}:\d{2}/.test(line);
-      let isPrice=line.includes('₪')||line.includes('ש"ח')||line.includes('שח');
-
-      if(!isDayOfWeek&&!isDate&&!isTime&&!isPrice){
-        notesArr.push(line);
-      }
+      let line=lines[i];if(i===0||i===1)continue;
+      let isDayOfWeek=days.some(d=>line.includes(d));let isDate=/\d{1,2}\/\d{1,2}/.test(line);let isTime=/\d{1,2}:\d{2}/.test(line);let isPrice=line.includes('₪')||line.includes('ש"ח')||line.includes('שח');
+      if(!isDayOfWeek&&!isDate&&!isTime&&!isPrice)notesArr.push(line);
     }
-
-    let notesVal=notesArr.join(', ');
-    const savedDate=dateVal||new Date().toLocaleDateString();
-
-    const rideData={
-      customer:customerName,
-      driver:driverName,
-      price:priceNum,
-      date:savedDate,
-      time:timeVal,
-      day:dayVal,
-      address:customerAndAddress,
-      orderTitle:headerTitle,
-      flight:flightNum,
-      notes:notesVal
-    };
-
+    let notesVal=notesArr.join(', ');const savedDate=dateVal||new Date().toLocaleDateString();
+    const rideData={customer:customerName,driver:driverName,price:priceNum,date:savedDate,time:timeVal,day:dayVal,address:customerAndAddress,orderTitle:headerTitle,flight:flightNum,notes:notesVal};
     rideData.fingerprint=createRideFingerprint(rideData);
-
     const duplicate=findDuplicateRide(rideData);
-
     if(duplicate){
-      const proceed=confirm(
-        '⚠️ נמצאה בסיכום נסיעה עם אותם פרטים.\n\n'+
-        `לקוח: ${duplicate.customer||customerName}\n`+
-        `תאריך: ${duplicate.date||'תאריך לא שמור'} | שעה: ${duplicate.time||'שעה לא שמורה'}\n`+
-        `נהג: ${duplicate.driver||'נהג לא ידוע'}\n\n`+
-        'האם ליצור ולשמור את הנסיעה פעם נוספת?'
-      );
-
+      const proceed=confirm('⚠️ נמצאה בסיכום נסיעה עם אותם פרטים.\n\n'+`לקוח: ${duplicate.customer||customerName}\n`+`תאריך: ${duplicate.date||'תאריך לא שמור'} | שעה: ${duplicate.time||'שעה לא שמורה'}\n`+`נהג: ${duplicate.driver||'נהג לא ידוע'}\n\n`+'האם ליצור ולשמור את הנסיעה פעם נוספת?');
       if(!proceed)return;
     }
-
-    if(!saveRideToLocalStorage(rideData)){
-      alert('לא ניתן לשמור את הנסיעה במכשיר. ההזמנה לא נשמרה בסיכום.');
-      return;
-    }
-
+    if(!saveRideToLocalStorage(rideData)){alert('לא ניתן לשמור את הנסיעה במכשיר. ההזמנה לא נשמרה בסיכום.');return;}
     let phoneRow=phoneClean?`📞 ${phoneClean}\n`:'';
-
-    let formattedOrder=
-      `${headerTitle}\n`+
-      `👤 שם לקוח: ${customerName}\n`+
-      `🚗 נהג מבצע: ${driverName}\n`+
-      `📍 ${customerAndAddress}\n`+
-      `תאריך 📅 ${dateVal}\n`+
-      `שעת איסוף ⏰: ${timeVal}\n`+
-      `יום בשבוע 📅 ${dayVal}\n\n`+
-      `📍 ${wazeLink}\n\n`+
-      phoneRow+
-      `✈️ ${flightRadarLink}\n\n`+
-      `מחיר ₪ 💰: ${priceVal}\n`+
-      `הערות 📝: ${notesVal}`;
-
+    let formattedOrder=`${headerTitle}\n`+`👤 שם לקוח: ${customerName}\n`+`🚗 נהג מבצע: ${driverName}\n`+`📍 ${customerAndAddress}\n`+`תאריך 📅 ${dateVal}\n`+`שעת איסוף ⏰: ${timeVal}\n`+`יום בשבוע 📅 ${dayVal}\n\n`+`📍 ${wazeLink}\n\n`+phoneRow+`✈️ ${flightRadarLink}\n\n`+`מחיר ₪ 💰: ${priceVal}\n`+`הערות 📝: ${notesVal}`;
     document.getElementById('outputResult').innerText=formattedOrder;
     document.getElementById('outputSection').style.display='block';
-
-    refreshDashboard();
-    renderRidesTab();
-    renderDriversTab();
-
-  }catch(err){
-    document.getElementById('errorMessage').innerText='שגיאה בעיבוד: '+err.message;
-  }
+    refreshDashboard();renderRidesTab();renderDriversTab();
+  }catch(err){document.getElementById('errorMessage').innerText='שגיאה בעיבוד: '+err.message;}
 }
 
 /* שמירה, כפילויות ומחיקה */
 function normalizeRidePart(value){
-  return String(value??'').toLocaleLowerCase('he')
-    .replace(/\s+/g,' ')
-    .replace(/[^\p{L}\p{N}:/]/gu,' ')
-    .replace(/\s+/g,' ')
-    .trim();
+  return String(value??'').toLocaleLowerCase('he').replace(/\s+/g,' ').replace(/[^\p{L}\p{N}:/]/gu,' ').replace(/\s+/g,' ').trim();
 }
 
 function createRideFingerprint(ride){
-  const parts=[
-    ride.orderTitle,
-    ride.customer,
-    ride.address,
-    ride.driver,
-    ride.date,
-    ride.time,
-    ride.day,
-    ride.price,
-    ride.flight,
-    ride.notes
-  ].map(normalizeRidePart);
-
+  const parts=[ride.orderTitle,ride.customer,ride.address,ride.driver,ride.date,ride.time,ride.day,ride.price,ride.flight,ride.notes].map(normalizeRidePart);
   return JSON.stringify(parts);
 }
 
 function findDuplicateRide(rideData){
-  try{
-    const saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];
-
-    if(!Array.isArray(saved))return null;
-
-    return saved.find(ride=>ride&&ride.fingerprint===rideData.fingerprint)||null;
-
-  }catch(e){
-    console.error('לא ניתן לבדוק כפילות נסיעות',e);
-    return null;
-  }
+  try{const saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];if(!Array.isArray(saved))return null;return saved.find(ride=>ride&&ride.fingerprint===rideData.fingerprint)||null;}
+  catch(e){console.error('לא ניתן לבדוק כפילות נסיעות',e);return null;}
 }
 
 function saveRideToLocalStorage(rideData){
-  try{
-    let saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];
-
-    if(!Array.isArray(saved))saved=[];
-
-    saved.push(rideData);
-
-    localStorage.setItem(RIDES_STORAGE_KEY,JSON.stringify(saved));
-
-    return true;
-
-  }catch(e){
-    console.error('שגיאה בשמירת נסיעה',e);
-    return false;
-  }
+  try{let saved=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];if(!Array.isArray(saved))saved=[];saved.push(rideData);localStorage.setItem(RIDES_STORAGE_KEY,JSON.stringify(saved));return true;}
+  catch(e){console.error('שגיאה בשמירת נסיעה',e);return false;}
 }
 
 function escapeHtml(value){
-  return String(value??'').replace(/[&<>"']/g,char=>({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[char]));
+  return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 }
 
 function removeRideFromReport(index){
   try{
     const rides=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY))||[];
-
     if(!Array.isArray(rides)||index<0||index>=rides.length)return;
-
     const ride=rides[index];
-
-    const approved=confirm(
-      'האם להסיר את הנסיעה מהסיכום?\n\n'+
-      `לקוח: ${ride.customer||'לא צוין'}\n`+
-      `נהג: ${ride.driver||'לא צוין'}\n`+
-      `תאריך: ${ride.date||'לא צוין'}\n`+
-      `סכום: ₪${Number(ride.price)||0}\n\n`+
-      'הפעולה מסירה את הרישום מהדוח בלבד. היא אינה שולחת הודעת ביטול לנהג.'
-    );
-
+    const approved=confirm('האם להסיר את הנסיעה מהסיכום?\n\n'+`לקוח: ${ride.customer||'לא צוין'}\n`+`נהג: ${ride.driver||'לא צוין'}\n`+`תאריך: ${ride.date||'לא צוין'}\n`+`סכום: ₪${Number(ride.price)||0}\n\n`+'הפעולה מסירה את הרישום מהדוח בלבד. היא אינה שולחת הודעת ביטול לנהג.');
     if(!approved)return;
-
-    rides.splice(index,1);
-    localStorage.setItem(RIDES_STORAGE_KEY,JSON.stringify(rides));
-
-    refreshDashboard();
-    renderRidesTab();
-    renderDriversTab();
-
+    rides.splice(index,1);localStorage.setItem(RIDES_STORAGE_KEY,JSON.stringify(rides));
+    refreshDashboard();renderRidesTab();renderDriversTab();
     if(currentReportDriver!==null){
       const stillExists=rides.some(r=>(r.driver||'לא ידוע')===currentReportDriver);
-
-      if(stillExists){
-        showDriverRides(currentReportDriver);
-      }else{
-        currentReportDriver=null;
-        showMonthlyReport();
-      }
-    }else{
-      showMonthlyReport();
-    }
-
-  }catch(e){
-    alert('לא ניתן לעדכן את הסיכום. הנתונים לא הוסרו.');
-    console.error(e);
-  }
+      if(stillExists)showDriverRides(currentReportDriver);
+      else{currentReportDriver=null;showMonthlyReport();}
+    }else showMonthlyReport();
+  }catch(e){alert('לא ניתן לעדכן את הסיכום. הנתונים לא הוסרו.');console.error(e);}
 }
 
 /* מסך הנסיעות */
 function renderRidesTab(){
-  const rides=getSavedRides();
-  const list=document.getElementById('ridesList');
-  const filter=document.getElementById('rideDriverFilter');
-  const selected=filter.value;
-
-  const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))]
-    .sort((a,b)=>a.localeCompare(b,'he'));
-
+  const rides=getSavedRides();const list=document.getElementById('ridesList');const filter=document.getElementById('rideDriverFilter');const selected=filter.value;
+  const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))].sort((a,b)=>a.localeCompare(b,'he'));
   filter.innerHTML='<option value="">כל הנהגים</option>';
-
-  names.forEach(name=>{
-    const option=document.createElement('option');
-    option.value=name;
-    option.textContent=name;
-    filter.appendChild(option);
-  });
-
+  names.forEach(name=>{const option=document.createElement('option');option.value=name;option.textContent=name;filter.appendChild(option);});
   filter.value=names.includes(selected)?selected:'';
-
-  const query=normalizeName(document.getElementById('rideSearch').value);
-  const driver=filter.value;
-
-  const matching=rides
-    .map((ride,index)=>({ride,index}))
-    .filter(item=>{
-      const r=item.ride;
-
-      const text=normalizeName([
-        r.customer,
-        r.driver,
-        r.address,
-        r.date,
-        r.orderTitle
-      ].join(' '));
-
-      return (!driver||(r.driver||'לא ידוע')===driver)&&
-        (!query||text.includes(query));
-    })
-    .sort((a,b)=>
-      String(b.ride.date||'').localeCompare(String(a.ride.date||''))||
-      String(b.ride.time||'').localeCompare(String(a.ride.time||''))
-    );
-
-  if(!matching.length){
-    list.innerHTML='<div class="empty-state">🚘<br><br>לא נמצאו נסיעות להצגה</div>';
-    return;
-  }
-
+  const query=normalizeName(document.getElementById('rideSearch').value);const driver=filter.value;
+  const matching=rides.map((ride,index)=>({ride,index})).filter(item=>{
+    const r=item.ride;const text=normalizeName([r.customer,r.driver,r.address,r.date,r.orderTitle].join(' '));
+    return (!driver||(r.driver||'לא ידוע')===driver)&&(!query||text.includes(query));
+  }).sort((a,b)=>String(b.ride.date||'').localeCompare(String(a.ride.date||''))||String(b.ride.time||'').localeCompare(String(a.ride.time||'')));
+  if(!matching.length){list.innerHTML='<div class="empty-state">🚘<br><br>לא נמצאו נסיעות להצגה</div>';return;}
   list.innerHTML=matching.map(({ride,index})=>`
     <div class="ride-item">
       <strong style="color:#f3d98e;font-size:15px">${escapeHtml(ride.customer||'לקוח לא צוין')}</strong><br>
@@ -1424,34 +604,15 @@ function renderRidesTab(){
       📍 ${escapeHtml(ride.address||'')}<br>
       💰 ₪${(Number(ride.price)||0).toLocaleString('he-IL')}
       <button class="action red small-action" onclick="removeRideFromReport(${index})">הסר מהסיכום</button>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 /* מסך הנהגים */
 function renderDriversTab(){
-  const rides=getSavedRides();
-  const stats={};
-
-  rides.forEach(r=>{
-    const name=r.driver||'לא ידוע';
-
-    if(!stats[name]){
-      stats[name]={count:0,revenue:0};
-    }
-
-    stats[name].count++;
-    stats[name].revenue+=Number(r.price)||0;
-  });
-
-  const names=Object.keys(stats).sort((a,b)=>a.localeCompare(b,'he'));
-  const list=document.getElementById('driversList');
-
-  if(!names.length){
-    list.innerHTML='<div class="empty-state">👥<br><br>עדיין אין נהגים ברשימת הנסיעות</div>';
-    return;
-  }
-
+  const rides=getSavedRides();const stats={};
+  rides.forEach(r=>{const name=r.driver||'לא ידוע';if(!stats[name])stats[name]={count:0,revenue:0};stats[name].count++;stats[name].revenue+=Number(r.price)||0;});
+  const names=Object.keys(stats).sort((a,b)=>a.localeCompare(b,'he'));const list=document.getElementById('driversList');
+  if(!names.length){list.innerHTML='<div class="empty-state">👥<br><br>עדיין אין נהגים ברשימת הנסיעות</div>';return;}
   list.innerHTML=names.map((name,index)=>`
     <div class="driver-card">
       <button type="button" onclick="openDriverByIndex(${index})">
@@ -1460,238 +621,291 @@ function renderDriversTab(){
         <div class="small" style="margin-top:7px">${stats[name].count} נסיעות · ₪${stats[name].revenue.toLocaleString('he-IL')}</div>
         <div class="small" style="margin-top:6px">לחץ לצפייה בנסיעות ←</div>
       </button>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function openDriverByIndex(index){
-  const rides=getSavedRides();
-
-  const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))]
-    .sort((a,b)=>a.localeCompare(b,'he'));
-
-  if(index<0||index>=names.length)return;
-
-  openDriverInRides(names[index]);
+  const rides=getSavedRides();const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))].sort((a,b)=>a.localeCompare(b,'he'));
+  if(index<0||index>=names.length)return;openDriverInRides(names[index]);
 }
 
 function openDriverInRides(name){
-  showTab('rides');
-  document.getElementById('rideDriverFilter').value=name;
-  renderRidesTab();
+  showTab('rides');document.getElementById('rideDriverFilter').value=name;renderRidesTab();
 }
 
 /* דוחות ונהגים */
 function showDriverRidesByIndex(driverIndex){
-  try{
-    const rides=getSavedRides();
-
-    const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))]
-      .sort((a,b)=>a.localeCompare(b,'he'));
-
-    if(driverIndex<0||driverIndex>=names.length)return;
-
-    showDriverRides(names[driverIndex]);
-
-  }catch(e){
-    console.error(e);
-  }
+  try{const rides=getSavedRides();const names=[...new Set(rides.map(r=>r.driver||'לא ידוע'))].sort((a,b)=>a.localeCompare(b,'he'));if(driverIndex<0||driverIndex>=names.length)return;showDriverRides(names[driverIndex]);}
+  catch(e){console.error(e);}
 }
 
 function showDriverRides(driverName){
-  currentReportDriver=driverName;
-
-  const content=document.getElementById('reportContent');
-  const rides=getSavedRides();
-
-  const matching=rides
-    .map((ride,index)=>({ride,index}))
-    .filter(x=>(x.ride.driver||'לא ידוע')===driverName);
-
+  currentReportDriver=driverName;const content=document.getElementById('reportContent');const rides=getSavedRides();
+  const matching=rides.map((ride,index)=>({ride,index})).filter(x=>(x.ride.driver||'לא ידוע')===driverName);
   const total=matching.reduce((sum,x)=>sum+(Number(x.ride.price)||0),0);
-
   let html=`<button class="action gray small-action back-btn" type="button" onclick="currentReportDriver=null;showMonthlyReport()">← חזרה לרשימת הנהגים</button>`;
-
   html+=`<h4>🚗 הנסיעות של ${escapeHtml(driverName)}</h4>`;
-
   html+=`<p><b>מספר נסיעות:</b> ${matching.length}<br><b>סכום כולל:</b> ₪${total.toLocaleString('he-IL')}</p><hr>`;
-
-  matching.sort((a,b)=>
-    String(a.ride.date||'').localeCompare(String(b.ride.date||''))||
-    String(a.ride.time||'').localeCompare(String(b.ride.time||''))
-  );
-
+  matching.sort((a,b)=>String(a.ride.date||'').localeCompare(String(b.ride.date||''))||String(a.ride.time||'').localeCompare(String(b.ride.time||'')));
   matching.forEach(({ride,index})=>{
-    const details=[
-      `<b>${escapeHtml(ride.customer||'לקוח לא צוין')}</b>`,
-      `תאריך: ${escapeHtml(ride.date||'לא צוין')}`,
-      ride.time?`שעה: ${escapeHtml(ride.time)}`:'',
-      `סכום: ₪${(Number(ride.price)||0).toLocaleString('he-IL')}`,
-      ride.address?`כתובת: ${escapeHtml(ride.address)}`:''
-    ].filter(Boolean).join('<br>');
-
+    const details=[`<b>${escapeHtml(ride.customer||'לקוח לא צוין')}</b>`,`תאריך: ${escapeHtml(ride.date||'לא צוין')}`,ride.time?`שעה: ${escapeHtml(ride.time)}`:'',`סכום: ₪${(Number(ride.price)||0).toLocaleString('he-IL')}`,ride.address?`כתובת: ${escapeHtml(ride.address)}`:''].filter(Boolean).join('<br>');
     html+=`<div class="ride-item">${details}<button class="action red small-action" type="button" onclick="removeRideFromReport(${index})">הסר מהסיכום</button></div>`;
   });
-
   content.innerHTML=html;
 }
 
 function showMonthlyReport(){
-  currentReportDriver=null;
-
-  let area=document.getElementById('monthlyReportArea');
-  let content=document.getElementById('reportContent');
-
+  currentReportDriver=null;let area=document.getElementById('monthlyReportArea');let content=document.getElementById('reportContent');
   try{
     let rides=getSavedRides();
-
-    if(rides.length===0){
-      lastReportText="אין עדיין נסיעות שמורות החודש.";
-      content.innerHTML=`<b>${lastReportText}</b>`;
-      area.style.display='block';
-      return;
-    }
-
-    let totalRides=rides.length;
-    let totalRevenue=rides.reduce((sum,r)=>sum+(Number(r.price)||0),0);
-    let driverStats={};
-
-    rides.forEach(r=>{
-      let d=r.driver||'לא ידוע';
-
-      if(!driverStats[d]){
-        driverStats[d]={count:0,revenue:0};
-      }
-
-      driverStats[d].count++;
-      driverStats[d].revenue+=Number(r.price)||0;
-    });
-
-    let topDriver='אין';
-    let maxCount=-1;
-
-    for(let d in driverStats){
-      if(driverStats[d].count>maxCount){
-        maxCount=driverStats[d].count;
-        topDriver=d;
-      }
-    }
-
-    lastReportText=
-`📊 דוח סיכום חודשי - נסיעות
-━━━━━━━━━━━━━━━━━━━━
-📌 סה"כ נסיעות: ${totalRides}
-💰 סה"כ הכנסות/חלוקה: ₪${totalRevenue.toLocaleString()}
-🏆 הנהג המוביל: ${topDriver} (${maxCount} נסיעות)
-
-📋 פירוט לפי נהגים:
-`;
-
+    if(rides.length===0){lastReportText="אין עדיין נסיעות שמורות החודש.";content.innerHTML=`<b>${lastReportText}</b>`;area.style.display='block';return;}
+    let totalRides=rides.length;let totalRevenue=rides.reduce((sum,r)=>sum+(Number(r.price)||0),0);let driverStats={};
+    rides.forEach(r=>{let d=r.driver||'לא ידוע';if(!driverStats[d])driverStats[d]={count:0,revenue:0};driverStats[d].count++;driverStats[d].revenue+=Number(r.price)||0;});
+    let topDriver='אין';let maxCount=-1;
+    for(let d in driverStats){if(driverStats[d].count>maxCount){maxCount=driverStats[d].count;topDriver=d;}}
+    lastReportText=`📊 דוח סיכום חודשי - נסיעות\n━━━━━━━━━━━━━━━━━━━━\n📌 סה"כ נסיעות: ${totalRides}\n💰 סה"כ הכנסות/חלוקה: ₪${totalRevenue.toLocaleString()}\n🏆 הנהג המוביל: ${topDriver} (${maxCount} נסיעות)\n\n📋 פירוט לפי נהגים:\n`;
     const names=Object.keys(driverStats).sort((a,b)=>a.localeCompare(b,'he'));
-
-    names.forEach(d=>{
-      lastReportText+=`▫️ *${d}*: ${driverStats[d].count} נסיעות | ₪${driverStats[d].revenue.toLocaleString()}\n`;
-    });
-
+    names.forEach(d=>{lastReportText+=`▫️ *${d}*: ${driverStats[d].count} נסיעות | ₪${driverStats[d].revenue.toLocaleString()}\n`;});
     let html=`<h4>📈 דוח סיכום נסיעות</h4>`;
-
     html+=`<p><b>סה"כ נסיעות:</b> ${totalRides}</p>`;
     html+=`<p><b>סה"כ הכנסות/חלוקה:</b> ₪${totalRevenue.toLocaleString('he-IL')}</p>`;
     html+=`<p><b>🏆 הנהג המוביל:</b> ${escapeHtml(topDriver)} (${maxCount} נסיעות)</p>`;
     html+=`<hr><p><b>לחץ על שם הנהג כדי לראות את הנסיעות שלו:</b></p>`;
-
-    names.forEach((d,index)=>{
-      html+=`<div class="driver-card"><button type="button" onclick="showDriverRidesByIndex(${index})"><b style="color:#f3d98e">${escapeHtml(d)}</b><br>${driverStats[d].count} נסיעות | ₪${driverStats[d].revenue.toLocaleString('he-IL')}<br><small>לחץ לצפייה ולמחיקת נסיעה</small></button></div>`;
-    });
-
-    content.innerHTML=html;
-    area.style.display='block';
-
-    refreshDashboard();
-
-  }catch(e){
-    content.innerHTML='שגיאה בטעינת הדוח.';
-    area.style.display='block';
-    console.error(e);
-  }
+    names.forEach((d,index)=>{html+=`<div class="driver-card"><button type="button" onclick="showDriverRidesByIndex(${index})"><b style="color:#f3d98e">${escapeHtml(d)}</b><br>${driverStats[d].count} נסיעות | ₪${driverStats[d].revenue.toLocaleString('he-IL')}<br><small>לחץ לצפייה ולמחיקת נסיעה</small></button></div>`;});
+    content.innerHTML=html;area.style.display='block';refreshDashboard();
+  }catch(e){content.innerHTML='שגיאה בטעינת הדוח.';area.style.display='block';console.error(e);}
 }
 
 function sendReportToWhatsApp(){
-  if(!lastReportText){
-    alert('יש להציג את הדוח תחילה.');
-    return;
-  }
-
+  if(!lastReportText){alert('יש להציג את הדוח תחילה.');return;}
   window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(lastReportText)}`,'_blank');
 }
 
 function resetMonthlyData(){
   if(confirm('האם אתה בטוח שברצונך לאפס את כל נתוני הנסיעות? פעולה זו תמחק את כל הנסיעות והסיכומים שנצברו עד כה.')){
     localStorage.removeItem(RIDES_STORAGE_KEY);
-
     document.getElementById('monthlyReportArea').style.display='none';
-
-    lastReportText='';
-    currentReportDriver=null;
-
-    refreshDashboard();
-    renderRidesTab();
-    renderDriversTab();
-
+    lastReportText='';currentReportDriver=null;
+    refreshDashboard();renderRidesTab();renderDriversTab();
     alert('הנתונים אופסו בהצלחה.');
   }
 }
 
 /* פעולות הזמנה ושיתוף */
 function newOrder(){
-  document.getElementById('rawInput').value='';
-  document.getElementById('driverName').value='';
-
-  selectedContact=null;
-  selectedPhone='';
-
+  document.getElementById('rawInput').value='';document.getElementById('driverName').value='';
+  selectedContact=null;selectedPhone='';
   document.getElementById('contactSearch').value='';
   document.getElementById('contactResults').style.display='none';
   document.getElementById('contactResults').value='';
-
   clearContactSelectionUI();
-
   document.getElementById('outputSection').style.display='none';
   document.getElementById('errorMessage').innerText='';
-
   document.getElementById('rawInput').focus();
 }
 
 function sendToWhatsApp(){
   let textToSend=document.getElementById('outputResult').innerText;
-
   window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(textToSend)}`,'_blank');
 }
 
 async function sendToGoogleTasks(){
   const textToSend=document.getElementById('outputResult').innerText.trim();
+  if(!textToSend){alert('אין הזמנה מוכנה לשיתוף.');return;}
+  if(!navigator.share){alert('הדפדפן אינו תומך בשיתוף ישיר. פתח את המערכת בדפדפן Chrome מעודכן בטלפון.');return;}
+  try{await navigator.share({title:'פרטי נסיעה - Daniel Exclusive Luxury Taxi',text:textToSend});}
+  catch(error){if(error.name!=='AbortError'){alert('לא ניתן לפתוח את חלון השיתוף. נסה שוב.');console.error('שגיאת שיתוף:',error);}}
+}
 
-  if(!textToSend){
-    alert('אין הזמנה מוכנה לשיתוף.');
-    return;
-  }
+/* =====================================
+   גיבוי וייבוא מלא של נתוני המערכת
+===================================== */
 
-  if(!navigator.share){
-    alert('הדפדפן אינו תומך בשיתוף ישיר. פתח את המערכת בדפדפן Chrome מעודכן בטלפון.');
-    return;
-  }
-
+function exportAllData(){
   try{
-    await navigator.share({
-      title:'פרטי נסיעה - Daniel Exclusive Luxury Taxi',
-      text:textToSend
-    });
+    const contactsData=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+    const ridesData=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY)||'[]');
+
+    if(!Array.isArray(contactsData)||!Array.isArray(ridesData)){
+      throw new Error('מבנה הנתונים אינו תקין');
+    }
+
+    const backup={
+      app:'Daniel Exclusive Luxury Taxi',
+      version:1,
+      createdAt:new Date().toISOString(),
+      contacts:contactsData,
+      rides:ridesData
+    };
+
+    const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('a');
+    const date=new Date();
+    const dateText=[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-');
+
+    link.href=url;
+    link.download='Daniel_Taxi_Backup_'+dateText+'.json';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+
+    document.getElementById('backupStatus').innerText=
+      `✅ קובץ הגיבוי נוצר בהצלחה\nנסיעות: ${ridesData.length}\nאנשי קשר: ${contactsData.length}`;
 
   }catch(error){
-    if(error.name!=='AbortError'){
-      alert('לא ניתן לפתוח את חלון השיתוף. נסה שוב.');
-      console.error('שגיאת שיתוף:',error);
+    alert('שגיאה ביצירת הגיבוי: '+error.message);
+  }
+}
+
+function getRideImportKey(ride){
+  if(ride.fingerprint)return String(ride.fingerprint);
+  return JSON.stringify([
+    ride.orderTitle,ride.customer,ride.address,ride.driver,
+    ride.date,ride.time,ride.price,ride.flight
+  ].map(v=>String(v??'').trim()));
+}
+
+function mergeImportedRides(existing,incoming){
+  const result=Array.isArray(existing)?[...existing]:[];
+  const known=new Set(result.map(getRideImportKey));
+  let added=0;
+  let duplicates=0;
+
+  incoming.forEach(ride=>{
+    if(!ride||typeof ride!=='object'||Array.isArray(ride))return;
+    const key=getRideImportKey(ride);
+    if(known.has(key)){duplicates++;return;}
+    result.push(ride);
+    known.add(key);
+    added++;
+  });
+
+  return {rides:result,added,duplicates};
+}
+
+function mergeImportedContacts(existing,incoming){
+  const result=(Array.isArray(existing)?existing:[])
+    .map(contact=>({
+      name:String(contact.name||'').trim(),
+      phones:Array.isArray(contact.phones)?contact.phones.map(String).filter(Boolean):[]
+    }))
+    .filter(contact=>contact.name);
+
+  let addedContacts=0;
+  let addedPhones=0;
+  let duplicates=0;
+
+  incoming.forEach(contact=>{
+    if(!contact||!contact.name||!Array.isArray(contact.phones))return;
+    const name=String(contact.name).trim();
+    const phones=contact.phones.map(p=>String(p||'').trim()).filter(Boolean);
+    if(!name||!phones.length)return;
+
+    phones.forEach(phone=>{
+      const key=normalizePhone(phone);
+      if(!key)return;
+
+      const existingContact=result.find(c=>c.phones.some(p=>normalizePhone(p)===key));
+      if(existingContact){duplicates++;return;}
+
+      let sameName=result.find(c=>normalizeName(c.name)===normalizeName(name));
+      if(!sameName){sameName={name,phones:[]};result.push(sameName);addedContacts++;}
+      sameName.phones.push(phone);
+      addedPhones++;
+    });
+  });
+
+  return {contacts:result,addedContacts,addedPhones,duplicates};
+}
+
+async function importAllData(){
+  const file=document.getElementById('dataBackupFile').files[0];
+  if(!file){alert('תחילה יש לבחור קובץ גיבוי JSON.');return;}
+
+  try{
+    const backup=JSON.parse(await file.text());
+
+    if(!backup||backup.app!=='Daniel Exclusive Luxury Taxi'||backup.version!==1||
+       !Array.isArray(backup.contacts)||!Array.isArray(backup.rides)){
+      throw new Error('זה אינו קובץ גיבוי תקין של מערכת Daniel Taxi');
     }
+
+    const existingContacts=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+    const existingRides=JSON.parse(localStorage.getItem(RIDES_STORAGE_KEY)||'[]');
+
+    if(!Array.isArray(existingContacts)||!Array.isArray(existingRides)){
+      throw new Error('הנתונים הקיימים במערכת אינם תקינים');
+    }
+
+    const contactResult=mergeImportedContacts(existingContacts,backup.contacts);
+    const rideResult=mergeImportedRides(existingRides,backup.rides);
+
+    const summary=
+      'נמצא קובץ גיבוי תקין.\n\n'+
+      'נתונים בקובץ:\n'+
+      'נסיעות: '+backup.rides.length+'\n'+
+      'אנשי קשר: '+backup.contacts.length+'\n\n'+
+      'תוצאות המיזוג:\n'+
+      'נסיעות חדשות: '+rideResult.added+'\n'+
+      'נסיעות כפולות שדולגו: '+rideResult.duplicates+'\n'+
+      'אנשי קשר חדשים: '+contactResult.addedContacts+'\n'+
+      'מספרי טלפון חדשים: '+contactResult.addedPhones+'\n'+
+      'מספרים כפולים שדולגו: '+contactResult.duplicates+'\n\n'+
+      'הנתונים הקיימים לא יימחקו.\n\nהאם להמשיך בייבוא?';
+
+    if(!confirm(summary))return;
+
+    const oldContacts=localStorage.getItem(STORAGE_KEY);
+    const oldRides=localStorage.getItem(RIDES_STORAGE_KEY);
+
+    try{
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(contactResult.contacts));
+      localStorage.setItem(RIDES_STORAGE_KEY,JSON.stringify(rideResult.rides));
+    }catch(saveError){
+      try{
+        if(oldContacts===null)localStorage.removeItem(STORAGE_KEY);
+        else localStorage.setItem(STORAGE_KEY,oldContacts);
+
+        if(oldRides===null)localStorage.removeItem(RIDES_STORAGE_KEY);
+        else localStorage.setItem(RIDES_STORAGE_KEY,oldRides);
+      }catch(rollbackError){
+        console.error('שגיאה בשחזור נתונים:',rollbackError);
+      }
+      throw new Error('השמירה נכשלה. בוצע ניסיון לשחזר את הנתונים הקודמים.');
+    }
+
+    contacts=contactResult.contacts;
+    selectedContact=null;
+    selectedPhone='';
+
+    clearContactSelectionUI();
+    updateContactStatus();
+    refreshDashboard();
+    renderRidesTab();
+    renderDriversTab();
+
+    document.getElementById('monthlyReportArea').style.display='none';
+
+    document.getElementById('backupStatus').innerText=
+      '✅ הייבוא הושלם בהצלחה\n'+
+      'נסיעות חדשות: '+rideResult.added+'\n'+
+      'אנשי קשר חדשים: '+contactResult.addedContacts;
+
+    alert(
+      '✅ הייבוא הסתיים בהצלחה!\n\n'+
+      'נסיעות שנוספו: '+rideResult.added+'\n'+
+      'נסיעות כפולות שדולגו: '+rideResult.duplicates+'\n'+
+      'אנשי קשר חדשים: '+contactResult.addedContacts+'\n'+
+      'מספרי טלפון חדשים: '+contactResult.addedPhones
+    );
+
+    document.getElementById('dataBackupFile').value='';
+
+  }catch(error){
+    alert('ייבוא הנתונים נכשל:\n'+error.message);
+    console.error(error);
   }
 }
 
